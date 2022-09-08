@@ -24,17 +24,23 @@ if (isset($_POST["data"])) {
     
         $result = $service->spreadsheets_values
         ->append($spreadsheetId, $rangeCreate, $body, $params, $insert);
+
+        if($result){
+            $message = "<div class='alert alert-success' 
+                        role='alert'>Data Successfuly Sent to Googlesheet </div>";
+            
+                        
+            header("Refresh: 1; url=index.php");
+        }else {
+            $message = "<div class='alert alert-warning' 
+                role='alert'>System Error </div>";
+        }
     
-        $message = "<div class='alert alert-success' 
-                role='alert'>Data Successfuly Sent to Googlesheet </div>";
-    
-            header("Location: index.php");
-    
+    } else {
+        $message = "<div class='alert alert-danger' 
+        role='alert'>Warning! Please check your input</div>";
     }
-        
-} else {
-    $message = "<div class='alert alert-danger' 
-    role='alert'>Warning! Please check your input</div>";
-}
+    
+} 
 
 

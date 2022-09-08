@@ -1,6 +1,7 @@
 <?php include("scripts.php"); ?>
-<?php include("read.php"); ?>
-<?php include("create.php"); ?>
+<?php require_once("read.php"); ?>
+<?php require_once("create.php"); ?>
+<?php require_once("koneksi_db.php"); ?>
 
 
 <!doctype html>
@@ -13,7 +14,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Dikot Harahap</title>
+    <title>Assessment Project</title>
     <style>
       nav {
         background-color: blueviolet;
@@ -26,18 +27,24 @@
   </head>
   <body>
     <div class="container">
-      <nav class="navbar navbar-expand-lg text-white">
-        <h4 class="navbar-brand" href="#">Assessment Project - Developer - Dikot Harahap</h4>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse">
-            <div class="navbar-nav">
-              <a class="nav-item nav-link active text-white" href="index.php">Home <span class="sr-only">(current)</span></a>
-            </div>
-          </div>
+      <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand text-white mb-0 h1" href="index.php">Assessment Project - Developer - Dikot Harahap</a>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+          <a class="btn btn-primary" href="logout.php">Logout</a>
+          </li>
+        </ul>
       </nav>
     </div>
+
+    <?php
+    if (isset($_SESSION['username'])){
+      echo $_SESSION['username'];
+      echo $_SESSION['password'];
+    } else {
+      header("Location: login.php");
+    }
+    ?>
 
     <div class="container mt-5">
       <div class="row">
@@ -46,11 +53,11 @@
         <table class="table table-hover table-bordered">
           <thead class="text-center">
             <tr>
-              <th>Number of Row</th>
+              <th width="30%">Number of Row</th>
               <th>Column Data</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody class="text-center">
 
           <?php
           $no = 0;
@@ -78,6 +85,7 @@
 
         <div class="col-md-6">
           <?php echo $message; ?>
+
           <h4>Form Create Data</h4>
             <form action="" method="POST">
               <div class="form-group">
@@ -92,7 +100,7 @@
     </div>
 
     <div class="container">
-      <?php print_r($values); ?>
+      <!-- <?php print_r($values); ?> -->
     </div>
 
 
