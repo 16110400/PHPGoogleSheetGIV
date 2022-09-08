@@ -43,11 +43,11 @@
       <div class="row">
         <div class="col-md-6">
           <h4>Google Sheet API - Table (Range A2:A30)</h4>
-        <table class="table table-hover border">
-          <thead>
+        <table class="table table-hover table-bordered">
+          <thead class="text-center">
             <tr>
-              <th scope="col">Number of Row</th>
-              <th scope="col">Column Data</th>
+              <th>Number of Row</th>
+              <th>Column Data</th>
             </tr>
           </thead>
           <tbody>
@@ -55,12 +55,20 @@
           <?php
           $no = 0;
 
-          for($i=0; $i < count($values); $i++){
-              $no += 1;
-              echo  "<tr>";
-              echo  "<th>" .$no. "</th>";
-              echo  "<td>" .$values[$i][0]. "</td>";
-              echo  "</tr>";
+          if(!isset($values)){
+            echo  "<tr>";
+            echo  "<td colspan='2' class='text-center'>No Data Available</td>";
+            echo  "</tr>";
+          }else{
+
+            for($i=0; $i < count($values); $i++){
+                $no += 1;
+                echo  "<tr>";
+                echo  "<th>" .$no. "</th>";
+                echo  "<td>" .$values[$i][0]. "</td>";
+                echo  "</tr>";
+            }
+
           }
           ?>  
 
