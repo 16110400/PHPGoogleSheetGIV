@@ -10,3 +10,6 @@ $client = new Google\Client();
 
     $service = new Google\Service\Sheets($client);
     $spreadsheetId = '14kZHyLCJE5VyDaldpFc8NGeWxptc11tWD8g16mfINDE';
+
+
+global $error1, $error2, $error3, $token_message;

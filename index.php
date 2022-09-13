@@ -28,7 +28,14 @@
   <body>
     <div class="container">
       <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand text-white mb-0 h1" href="index.php">Assessment Project - Developer - Dikot Harahap</a>
+        <a class="navbar-brand text-white mb-0 h1 pr-5" href="index.php">Assessment Project - Developer - <?php echo $_SESSION['username'];?></a>
+        
+        <form action="user_generate_key.php" method="POST">
+          <input type="hidden" name="username" value="<?php echo $_SESSION['username'];?>">
+          <input type="hidden" name="password" value="<?php echo $_SESSION['password'];?>">
+          <button type="submit" name="submit" value="generate_key_token" class="btn btn-warning">Generate API key / Token</button>
+        </form>
+
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
           <a class="btn btn-primary" href="logout.php">Logout</a>
@@ -39,14 +46,21 @@
 
     <?php
     if (isset($_SESSION['username'])){
-      echo $_SESSION['username'];
-      echo $_SESSION['password'];
-    } else {
+      if(isset($_SESSION['user_token'])){
+      $token_message = $_SESSION['user_token'];
+      unset($_SESSION['user_token']);
+      }
+    }else{
       header("Location: login.php");
     }
     ?>
 
     <div class="container mt-5">
+      <div class="row">
+        <div class="col-md-12">
+          <?php echo $token_message ?>
+        </div>
+      </div>
       <div class="row">
         <div class="col-md-6">
           <h4>Google Sheet API - Table (Range A2:A30)</h4>

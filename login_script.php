@@ -1,6 +1,6 @@
 <?php
 
-global $error1, $error2, $error3;
+
 
 if (isset($_POST['login'])) {
     $username_login = $_POST['username'];
