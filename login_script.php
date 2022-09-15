@@ -23,7 +23,7 @@ if (isset($_POST['login'])) {
                   </div>";
         } else {
             while ($row = mysqli_fetch_array($query)) {
-                $id = $row['id'];
+                $id = $row['id_user'];
                 $username = $row['username'];
                 $password = $row['password'];
             }

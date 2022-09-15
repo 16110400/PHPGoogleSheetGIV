@@ -1,5 +1,5 @@
 <?php
-global $error1, $error2, $error3, $token_message;
+global $error1, $error2, $error3, $token_message, $authentication;
 
 ob_start();
 

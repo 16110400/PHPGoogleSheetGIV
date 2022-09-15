@@ -48,17 +48,20 @@
     if (isset($_SESSION['username'])){
       if(isset($_SESSION['user_token'])){
       $token_message = $_SESSION['user_token'];
+      $authentication = $_SESSION['authentication'];
       unset($_SESSION['user_token']);
+      unset($_SESSION['authentication']);
       }
     }else{
       header("Location: login.php");
     }
     ?>
 
-    <div class="container mt-5">
+<div class="container mt-5">
       <div class="row">
         <div class="col-md-12">
           <?php echo $token_message ?>
+          <?php echo $authentication ?>
         </div>
       </div>
       <div class="row">
@@ -109,6 +112,10 @@
 
               <button type="submit" class="btn btn-primary">Submit</button>
             </form>
+            <h5 class="pt-5">Get JSON API data</h4>
+            <span class="font-italic">with token check from database user</span>
+            </br>
+            <a href="get_api_data_sheet.php" class="btn btn-md btn-success mt-2">Get all Data</a>
         </div>
       </div>
     </div>
