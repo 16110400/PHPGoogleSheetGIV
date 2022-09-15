@@ -48,7 +48,6 @@
     if (isset($_SESSION['username'])){
       if(isset($_SESSION['user_token'])){
       $token_message = $_SESSION['user_token'];
-      $authentication = $_SESSION['authentication'];
       unset($_SESSION['user_token']);
       unset($_SESSION['authentication']);
       }
@@ -61,7 +60,6 @@
       <div class="row">
         <div class="col-md-12">
           <?php echo $token_message ?>
-          <?php echo $authentication ?>
         </div>
       </div>
       <div class="row">
