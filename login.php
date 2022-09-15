@@ -1,5 +1,5 @@
 <?php require_once("koneksi_db.php"); ?>
-<?php include("login_script.php"); ?>
+<?php require_once("login_script.php"); ?>
 
 <!doctype html>
 <html lang="en">

@@ -1,7 +1,5 @@
 <?php
 
-
-
 if (isset($_POST['login'])) {
     $username_login = $_POST['username'];
     $pass_login = $_POST['password'];

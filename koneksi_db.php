@@ -1,4 +1,6 @@
 <?php
+global $error1, $error2, $error3, $token_message;
+
 ob_start();
 
 if (!isset($_SESSION)) {
